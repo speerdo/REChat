@@ -16,6 +16,126 @@
 
 body {
   color: var(--foreground);
+  margin: 0;
+  padding: 0;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  height: 80vh;
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+section {
+  width: 100%;
+}
+
+section.populated {
+  display: flex;
+  height: 100%;
+  overflow: scroll;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.starter-text {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 80px;
+}
+
+form {
+  height: 80px;
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #828282;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+input.chat-input {
+  width: 60%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  color: #383838;
+}
+
+button[type="submit"] {
+  width: 20%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  background-color: red;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+.loading-bubble {
+  margin: 10px;
+  width: 60px;
+  aspect-ratio: 4;
+  background: 
+    no-repeat radial-gradient(circle closest-side, #383838 90%, #000) 0 50%,
+    no-repeat radial-gradient(circle closest-side, #383838 90%, #000) 50% 50%,
+    no-repeat radial-gradient(circle closest-side, #383838 90%, #000) 100% 50%;
+  background-size: calc(100% / 3) 100%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  33% {
+    background-size: calc(100% / 3) 0, calc(100% / 3) 100%, calc(100% / 3) 100%;
+  }
+  50% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 0, calc(100% / 3) 100%;
+  }
+  66% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 100%, calc(100% / 3) 0;
+  }  
+}
+
+.bubble {
+  margin: 8px;
+  padding: 8px;
+  font-size: 15px;
+  border: none;
+  color: #383838;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 80%;
+  text-align: left;
 }
