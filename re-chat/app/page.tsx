@@ -9,7 +9,16 @@ import PromptSuggestionsRow from './components/PromptSuggestionsRow';
 const Home = () => {
   const { append, isLoading, messages, input, handleInputChange, handleSubmit } = useChat();
 
-  const noMessages = false;
+  const noMessages = !messages || messages.length === 0;
+
+  const handlePromptClick = (prompt: string) => {
+    const msg: Message = {
+      id: crypto.randomUUID(),
+      content: prompt,
+      role: 'user'
+    }
+    append(msg);
+  }
   
   return (
     <main>
@@ -20,7 +29,7 @@ const Home = () => {
             <>
               <p className='starter-text'>The Ultimate Real Estate Chatbot for Hamilton County, Indiana.</p>
               <br/>
-              <PromptSuggestionsRow />
+              <PromptSuggestionsRow onPromptClick={handlePromptClick} />
             </>
           ) : (
             <>              

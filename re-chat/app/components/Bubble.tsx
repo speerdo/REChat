@@ -1,7 +1,10 @@
+import { Message } from 'ai';
+
 const Bubble = ({ message }: { message: Message }) => {
+  const { content, role } = message;
   return (
-    <div className='bubble'>
-      <p>Bubble</p>
+    <div className={`${role} bubble`}>
+      {content}
     </div>
   )
 }
